@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Grunt : MonoBehaviour
 {
-    public float gruntSpeed = 4.5f;
+    private float gruntSpeed = 0;
     private float gruntBorder = -10f;
     public float disableColliderBorder = -8.3f;
 
@@ -18,6 +18,8 @@ public class Grunt : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll2D = GetComponent<Collider2D>();
+
+        gruntSpeed = UnityEngine.Random.Range(2.5f, 6.5f);
     }
 
     // Update is called once per frame

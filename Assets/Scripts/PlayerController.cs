@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public float verticalInput;
     public float topBound = 5.0f;
     public float bottomBound = -5.0f;
+    public int magazine = 2;
+    public float timer;
+    public bool canShoot = true;
+    public bool didShoot = false;
 
     public GameObject bulletPrefab;
     //public GameObject gruntPrefab;
@@ -20,6 +25,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Application.targetFrameRate = 144;
+
+        timer = 1f;
     }
 
     // Update is called once per frame
@@ -28,23 +35,53 @@ public class PlayerController : MonoBehaviour
 
         teleportPlayer();
 
-        spawnBullet();
+        checkMagazine();
 
     }
 
     private void FixedUpdate()
     {
-
-        
-
         movePlayer();
     }
 
     public void spawnBullet()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightArrow))
+        Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);   
+    }
+
+    public void checkMagazine()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightArrow) && canShoot == true)
         {
-            Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);
+
+            spawnBullet();
+            magazine--;
+
+            if(magazine <= 0)
+            {
+                canShoot = false;
+            }
+
+            didShoot = true;
+        }
+
+        if(didShoot == true)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        reloadMagazine();
+
+    }
+
+    public void reloadMagazine()
+    {
+        if(timer <= 0)
+        {
+            magazine = 3;
+            timer = 1f;
+            canShoot = true;
+            didShoot = false;
         }
     }
 

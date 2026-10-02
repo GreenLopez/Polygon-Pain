@@ -583,6 +583,10 @@ MonoBehaviour:
   verticalInput: 0
   topBound: 5
   bottomBound: -5
+  magazine: 3
+  timer: 1
+  canShoot: 1
+  didShoot: 0
   bulletPrefab: {fileID: 8107197543690839265, guid: 941bfee770b08f2428c26c474fb9a171, type: 3}
   playerPosition: {x: 0, y: 0}
 --- !u!1 &2005536617
