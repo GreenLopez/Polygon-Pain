@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
     public bool didShoot = false;
 
     public GameObject bulletPrefab;
-    //public GameObject gruntPrefab;
+    public GameObject gruntPrefab;
     public Vector2 playerPosition;
     private Rigidbody2D rb;
+    public AudioSource shootSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,7 +48,8 @@ public class PlayerController : MonoBehaviour
 
     public void spawnBullet()
     {
-        Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);   
+        Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);
+        
     }
 
     public void checkMagazine()

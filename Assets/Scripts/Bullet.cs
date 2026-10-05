@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
@@ -24,16 +23,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
 
-
-        
     }
 
     private void FixedUpdate()
     {
         /*Vector2 movement = new Vector2(1, 0) * bulletSpeed;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);*/
-
-        
 
         destroyBullet();
     }
@@ -51,10 +46,8 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+           
             Destroy(gameObject);
-
-
         }
 
     }

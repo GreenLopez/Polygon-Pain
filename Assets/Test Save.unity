@@ -306,7 +306,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +444,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &551458403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551458404}
+  - component: {fileID: 551458405}
+  m_Layer: 0
+  m_Name: Audio Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551458404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551458403}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551458405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551458403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d91b84aafa15bd4fb2bdf06607bb3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioPlayer
+  soundFXObject: {fileID: -4535620646674701884, guid: 6696be556f353544b9f3bbd3e05438a9, type: 3}
 --- !u!1 &567700150
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +821,9 @@ MonoBehaviour:
   canShoot: 1
   didShoot: 0
   bulletPrefab: {fileID: 8107197543690839265, guid: 941bfee770b08f2428c26c474fb9a171, type: 3}
+  gruntPrefab: {fileID: 8805156273290333885, guid: da32c6b8ed00bcc4fb63c1fc514cbef1, type: 3}
   playerPosition: {x: 0, y: 0}
+  shootSound: {fileID: 0}
 --- !u!1 &2005536617
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,3 +958,4 @@ SceneRoots:
   - {fileID: 2036435545}
   - {fileID: 2005536618}
   - {fileID: 66821207}
+  - {fileID: 551458404}
