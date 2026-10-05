@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Application.targetFrameRate = 144;
 
+        shootSound = GetComponent<AudioSource>();
+
         timer = 1f;
     }
 
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public void spawnBullet()
     {
         Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);
-        
+        AudioSource.PlayClipAtPoint(shootSound.clip, transform.position, 5f);
     }
 
     public void checkMagazine()
