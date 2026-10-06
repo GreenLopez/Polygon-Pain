@@ -489,8 +489,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GruntSpawner
   timer: 0.3
+  maxGruntsAllowed: 12
+  currentNumGrunts: 0
   Player: {fileID: 1106256790}
   gruntPrefab: {fileID: 8805156273290333885, guid: da32c6b8ed00bcc4fb63c1fc514cbef1, type: 3}
+  EnemyManager: {fileID: 1907603026}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1085,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1907603026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907603027}
+  - component: {fileID: 1907603028}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907603027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907603026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.15758, y: 1.40299, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907603028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907603026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5f354777a0c1845a90b0049aec604c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  subtractFromCurrentGruntNum: 0
+  Grunt: {fileID: 8805156273290333885, guid: da32c6b8ed00bcc4fb63c1fc514cbef1, type: 3}
 --- !u!1 &2005536617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1265,7 @@ SceneRoots:
   - {fileID: 66821207}
   - {fileID: 978315188}
   - {fileID: 1874801485}
+  - {fileID: 1907603027}
   - {fileID: 1472422527}
   - {fileID: 619394802}
   - {fileID: 2036435545}

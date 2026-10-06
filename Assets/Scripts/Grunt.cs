@@ -5,14 +5,16 @@ public class Grunt : MonoBehaviour
     private float gruntSpeed = 0;
     private float gruntBorder = -10f;
     public float disableColliderBorder = -8.3f;
-    public bool playGruntDestroyed = false;
 
     public GameObject Player;
+    public EnemyManager EnemyManager;
     
     public AudioSource gruntDestroyedSound;
 
     public Rigidbody2D rb;
     private Collider2D coll2D;
+
+    PlayerController playerControllerScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,8 +22,9 @@ public class Grunt : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll2D = GetComponent<Collider2D>();
 
-        gruntSpeed = UnityEngine.Random.Range(2.5f, 6.5f);
+        EnemyManager = FindAnyObjectByType<EnemyManager>();
 
+        gruntSpeed = UnityEngine.Random.Range(2.5f, 6.5f);
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class Grunt : MonoBehaviour
         disableCollider();
         destroyGrunt();
         moveGrunt();
+
     }
 
     public void moveGrunt()
@@ -47,7 +51,9 @@ public class Grunt : MonoBehaviour
     {
         if (rb.position.x < gruntBorder)
         {
+            EnemyManager.subtractFromCurrentGruntNum = true;
             Destroy(gameObject);
+            
         }
     }
 
@@ -65,8 +71,10 @@ public class Grunt : MonoBehaviour
         {
 
             SoundFXManager.instance.playAudioFXClip(gruntDestroyedSound.clip, transform, 0.3f);
+            EnemyManager.subtractFromCurrentGruntNum = true;
 
             print("GRUNT DESTROYED");
+
             Destroy(gameObject);
         }
     }

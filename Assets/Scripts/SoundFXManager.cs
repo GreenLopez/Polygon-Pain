@@ -1,7 +1,13 @@
 using UnityEngine;
 
 public class SoundFXManager : MonoBehaviour
-{
+{/*This class is what's called a "SINGLETON". This is a very dangerous class
+  and you may have to elminate it all together if issues arise.
+    
+  Basically, it can be accessed gloabally throughout the scene (maybe even the project. Find out ASAP)
+    
+  This singleton will be used later to make a sound settings menu where you will have sliders that can 
+    control the Master volume, Sound FX, and Music.*/
     public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundFXObject;
