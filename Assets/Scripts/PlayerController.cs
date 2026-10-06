@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public void spawnBullet()
     {
         Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.identity);
-        AudioSource.PlayClipAtPoint(shootSound.clip, transform.position, 5f);
+        SoundFXManager.instance.playAudioFXClip(shootSound.clip, transform, 0.5f);
     }
 
     public void checkMagazine()

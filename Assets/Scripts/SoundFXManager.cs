@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class AudioPlayer : MonoBehaviour
+public class SoundFXManager : MonoBehaviour
 {
-    public static AudioPlayer instance;
+    public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundFXObject;
 
     private void Awake()
     {
-        if(instance == null) {
-        
+        if (instance == null)
+        {
+
             instance = this;
         }
     }

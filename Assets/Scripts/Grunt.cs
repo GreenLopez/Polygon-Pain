@@ -64,7 +64,7 @@ public class Grunt : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
 
-            AudioPlayer.instance.playAudioFXClip(gruntDestroyedSound.clip, transform, 1f);
+            SoundFXManager.instance.playAudioFXClip(gruntDestroyedSound.clip, transform, 0.3f);
 
             print("GRUNT DESTROYED");
             Destroy(gameObject);
